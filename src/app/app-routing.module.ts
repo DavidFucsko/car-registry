@@ -13,6 +13,10 @@ const routes: Routes = [
     path: 'user-authentication',
     loadChildren: () => import('./user-authentication/user-authentication.module').then(m => m.UserAuthenticationModule)
   },
+  {
+    path: 'car-list',
+    loadChildren: () => import('./car-list/car-list.module').then(m => m.CarListModule)
+  },
   { path: '**', redirectTo: '' }
 ];
 

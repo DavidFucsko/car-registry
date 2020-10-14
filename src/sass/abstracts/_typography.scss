@@ -46,10 +46,8 @@ form {
     }
 }
 
-nav {
-    a {
-        color: $white;
-        text-decoration: none;
+.nav-bar {
+    span {
         font-size: $small-font;
     }
 }

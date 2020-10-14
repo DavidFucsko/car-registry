@@ -13,11 +13,11 @@ export class UserAuthenticatedGuard implements CanActivate {
     }
 
     canActivate(): boolean {
-
         if (!this.userAuthenticationService.isUserAuthenticated()) {
             this.router.navigate(['user-authentication']);
             return false;
         }
+        this.router.navigate(['car-list']);
         return true;
     }
 }
