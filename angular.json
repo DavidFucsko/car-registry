@@ -30,6 +30,11 @@
             "styles": [
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/sass/abstracts"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -94,6 +99,11 @@
             "styles": [
               "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/sass/abstracts"
+              ]
+            },
             "scripts": []
           }
         },
@@ -123,6 +133,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "car-registry"
 }
