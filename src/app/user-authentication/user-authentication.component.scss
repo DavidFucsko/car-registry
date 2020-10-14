@@ -7,23 +7,82 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-
         display: flex;
         flex-direction: row;
-
-        min-height: 57rem;
-        min-width: 95rem;
-
+        height: 57rem;
+        width: 95rem;
         @include normal-box-shadow($grey);
+
+        @include respond(phone) {
+            flex-direction: column;
+            box-shadow: none;
+            top: 0;
+            transform: translateX(-50%);
+            width: 100%;
+        }
 
     }
 
     &__logo {
+        position: relative;
         flex-basis: 30%;
         background-color: $secondary-color;
+        text-align: center;
+
+        @include respond(phone) {
+            flex-basis: 24rem;
+        }
+
+        &__icon {
+            height: 15.9rem;
+            filter: invert(100%);
+
+            @include respond(phone) {
+                height: 10rem;
+            }
+        }
     }
 
     &__form {
-        flex-basis: 60%;
+        position: relative;
+        flex-basis: 70%;
+
+        @include respond(phone) {
+            flex-basis: 32rem;
+        }
+    }
+
+    &__button {
+        width: 16rem;
+        height: 4rem;
+        background-color: $secondary-color;
+        border: 1px solid $secondary-color;
+        cursor: pointer;
+    }
+
+    &__content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        label,
+        input {
+            display: block;
+        }
+
+        label {
+            margin: 2rem 0;
+        }
+
+        input {
+            border: none;
+            border-bottom: 1px solid $grey;
+            background-color: $light-grey;
+            width: 27rem;
+            height: 4rem;
+            padding-left: 1rem;
+            margin-top: 0.5rem;
+        }
     }
 }

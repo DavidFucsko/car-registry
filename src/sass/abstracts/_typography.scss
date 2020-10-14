@@ -1,0 +1,55 @@
+body,
+input {
+    font-size: $normal-font;
+    letter-spacing: 0.1rem;
+    font-family: IBM Plex Sans, sans-serif-light, sans-serif;
+}
+
+p {
+    color: $white;
+}
+
+table {
+    color: $dark-grey;
+}
+
+h2 {
+    font-size: $normal-font;
+    margin-bottom: 1rem;
+    color: $dark-grey;
+}
+
+h1 {
+    font-size: $big-font;
+    margin-bottom: 3rem;
+    font-weight: normal;
+}
+
+.tab-label {
+    font-size: $small-font;
+    text-transform: uppercase;
+    color: $dark-grey;
+}
+
+form {
+    button {
+        font-size: $small-font;
+        letter-spacing: 0.1rem;
+        color: $white;
+    }
+
+    label,
+    input,
+    p {
+        font-size: $small-font;
+        color: black;
+    }
+}
+
+nav {
+    a {
+        color: $white;
+        text-decoration: none;
+        font-size: $small-font;
+    }
+}
