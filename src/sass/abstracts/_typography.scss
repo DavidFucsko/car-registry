@@ -10,7 +10,8 @@ p {
 }
 
 table {
-    color: $dark-grey;
+    font-size: $small-font;
+    letter-spacing: 0;
 }
 
 h2 {
@@ -31,12 +32,13 @@ h1 {
     color: $dark-grey;
 }
 
+button {
+    font-size: $small-font;
+    letter-spacing: 0.1rem;
+    color: $white;
+}
+
 form {
-    button {
-        font-size: $small-font;
-        letter-spacing: 0.1rem;
-        color: $white;
-    }
 
     label,
     input,

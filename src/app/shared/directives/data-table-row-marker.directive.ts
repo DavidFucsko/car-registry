@@ -1,10 +1,14 @@
-import { Directive, Input, TemplateRef } from '@angular/core';
+import { Directive, EventEmitter, Output, TemplateRef } from '@angular/core';
 
 @Directive({
     selector: '[appDataTableColumn]'
 })
 export class DataTableColMarkerDirective {
-    @Input('appDataTableColumn') boundProperty: string;
 
-    constructor(public templateRef: TemplateRef<any>) { }
+    @Output()
+    clicked: EventEmitter<any> = new EventEmitter<any>();
+
+    constructor(public templateRef: TemplateRef<any>) {
+        this.clicked.emit('hello');
+    }
 }

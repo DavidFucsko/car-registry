@@ -3,10 +3,7 @@
 
 .login {
     &__box {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        @include absolute-middle;
         display: flex;
         flex-direction: row;
         height: 57rem;
@@ -53,18 +50,11 @@
     }
 
     &__button {
-        width: 16rem;
-        height: 4rem;
-        background-color: $secondary-color;
-        border: 1px solid $secondary-color;
-        cursor: pointer;
+        @include app-button(16rem, 4rem);
     }
 
     &__content {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        @include absolute-middle;
 
         label,
         input {

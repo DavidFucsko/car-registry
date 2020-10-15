@@ -1,0 +1,43 @@
+@import 'variables';
+@import 'mixins';
+
+.nav-bar {
+    &__logo {
+        height: 2.3rem;
+        filter: invert(100%);
+        cursor: pointer;
+    }
+
+    &__title {
+        margin-left: 1rem;
+    }
+
+    &__item {
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+.data-table {
+    @include absolute-middle;
+
+    @include respond(tab-land) {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__button {
+        @include app-button(9.5rem, 3rem);
+
+    }
+}
+
+.add-car {
+    @include app-button(16rem, 4rem);
+
+    @include respond(tab-land) {
+        width: 70%;
+    }
+
+    margin-bottom: 2rem;
+}

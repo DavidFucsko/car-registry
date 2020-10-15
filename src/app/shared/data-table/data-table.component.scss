@@ -1,0 +1,49 @@
+@import 'variables';
+@import 'mixins';
+
+.data-table {
+    background-color: $white;
+    @include light-box-shadow($low-op-black);
+    border-spacing: 0 0;
+    padding: 1rem 0;
+
+    &__content {
+        overflow-x: auto;
+    }
+
+    &__column {
+        padding: 1rem 4rem;
+    }
+
+    &__heading {
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+
+        &--last {
+            padding-right: 0;
+            border-right: 4rem solid transparent;
+        }
+
+        &--first {
+            padding-left: 0;
+            border-left: 4rem solid transparent;
+        }
+    }
+
+    .odd {
+        background-color: $secondary-color-light;
+    }
+
+    .line {
+        position: absolute;
+        width: 100%;
+        padding: 0 1rem;
+
+        hr {
+            border: none;
+            background-color: $secondary-color;
+            height: 2px;
+        }
+    }
+}

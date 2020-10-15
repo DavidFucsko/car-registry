@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { DataTableComponent } from './data-table/data-table.component';
 import { DataTableColMarkerDirective } from './directives/data-table-row-marker.directive';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,8 @@ import { DataTableColMarkerDirective } from './directives/data-table-row-marker.
     DataTableColMarkerDirective
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    LayoutModule
   ],
   exports: [
     NavBarComponent,

@@ -1,13 +1,15 @@
-<app-nav-bar></app-nav-bar>
-
-<app-data-table>
-    <ng-container *appDataTableColumn="'firstField'">
-        <td></td>
-    </ng-container>
-    <ng-container *appDataTableColumn="'firstField'">
-        <td></td>
-    </ng-container>
-    <ng-container *appDataTableColumn="'firstField'">
-        <button> Details </button>
-    </ng-container>
-</app-data-table>
+<nav>
+    <app-nav-bar>
+        <img left src="../../assets/icons/logo.svg" class="nav-bar__logo nav-bar__item" />
+        <span left class="nav-bar__title nav-bar__item">Car Fleet Management</span>
+        <img right src="../../assets/icons/user-circle.svg" class="nav-bar__logo nav-bar__item" />
+    </app-nav-bar>
+</nav>
+<main class="data-table">
+    <button class="add-car">Add new Car</button>
+    <app-data-table [data]="data$ | async">
+        <ng-template appDataTableColumn (clicked)="rowClicked($event)">
+            <button class="data-table__button">Details</button>
+        </ng-template>
+    </app-data-table>
+</main>
