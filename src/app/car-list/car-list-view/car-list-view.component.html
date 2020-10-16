@@ -16,7 +16,7 @@
 
 <ng-container *ngIf="displayModal" #modal>
     <app-modal (closeModal)="toggleModalState($event)" [title]="modalTitle">
-        <app-car-form [optionLists]="optionLists" [loading]="loading" [carModel]="currentCarModel"
+        <app-car-form [optionLists]="optionLists$ | async" [loading]="loading" [carModel]="currentCarModel"
             (cancelled)="toggleModalState($event)"
             (carEdited)="addCar($event)"></app-car-form>
     </app-modal>

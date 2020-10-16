@@ -1,6 +1,6 @@
 import { Input, OnInit } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { AfterContentInit, Component, ContentChildren } from '@angular/core';
+import { Component, ContentChildren } from '@angular/core';
 
 import { DataTableInput } from 'src/app/models/data-table.model';
 import { DataTableColMarkerDirective } from '../directives/data-table-row-marker.directive';
@@ -42,7 +42,7 @@ export class DataTableComponent implements OnInit {
   }
 
   private initializeDataArrays(): void {
-    this.dataProperties = Object.keys(this.data.data[0]);
+    this.dataProperties = this.data.titles.map(title => title.titleFor);
     this.titlesToRender = this.data.titles.map(title => title.title);
   }
 

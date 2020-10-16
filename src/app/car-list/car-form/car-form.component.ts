@@ -1,6 +1,8 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import { Car } from 'src/app/models/car.model';
+import { OptionLists } from 'src/app/models/option-lists.model';
 
 @Component({
   selector: 'app-car-form',
@@ -16,7 +18,7 @@ export class CarFormComponent implements OnInit {
   public loading = false;
 
   @Input()
-  optionLists: { owners: string[], carTypes: string[], fuelTypes: string[] };
+  optionLists: OptionLists;
 
   @Output()
   cancelled: EventEmitter<boolean> = new EventEmitter<boolean>();

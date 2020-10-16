@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  option_lists_endpoint: 'FakeEndpoint',
+  car_list_endpoint: 'FakeEndpoint2',
+  car_reserve_endpoint: 'FakeEndpoint3'
 };
 
 /*

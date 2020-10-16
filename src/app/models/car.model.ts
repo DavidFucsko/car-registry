@@ -1,4 +1,5 @@
 export class Car {
+    id: number;
     licenseNumber: string;
     owner: string;
     carType: string;
@@ -7,6 +8,7 @@ export class Car {
     fuelType: string;
 
     constructor() {
+        this.id = null;
         this.licenseNumber = '';
         this.owner = '';
         this.carType = '';
