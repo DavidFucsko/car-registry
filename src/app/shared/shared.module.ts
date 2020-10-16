@@ -4,12 +4,14 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { DataTableComponent } from './data-table/data-table.component';
 import { DataTableColMarkerDirective } from './directives/data-table-row-marker.directive';
 import { LayoutModule } from '@angular/cdk/layout';
+import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
     NavBarComponent,
     DataTableComponent,
-    DataTableColMarkerDirective
+    DataTableColMarkerDirective,
+    ModalComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { LayoutModule } from '@angular/cdk/layout';
   exports: [
     NavBarComponent,
     DataTableComponent,
-    DataTableColMarkerDirective
+    DataTableColMarkerDirective,
+    ModalComponent
   ]
 })
 export class SharedModule { }

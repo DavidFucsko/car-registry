@@ -13,3 +13,12 @@
         </ng-template>
     </app-data-table>
 </main>
+
+<ng-container *ngIf="displayModal" #modal>
+    <app-modal (closeModal)="toggleModalState($event)">
+        <label>
+            License number
+            <input type="text">
+        </label>
+    </app-modal>
+</ng-container>

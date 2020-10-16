@@ -8,6 +8,8 @@ import { of } from 'rxjs';
 })
 export class CarListViewComponent {
 
+  public displayModal = false;
+
   public data$ = of({
     titles: [
       { titleFor: 'firstField', title: 'License Number', keep: true },
@@ -54,6 +56,11 @@ export class CarListViewComponent {
 
   rowClicked(event: any): void {
     console.log(event);
+    this.toggleModalState(true);
+  }
+
+  toggleModalState(newState: boolean): void {
+    this.displayModal = newState;
   }
 
 }
