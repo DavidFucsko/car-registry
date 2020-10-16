@@ -1,0 +1,105 @@
+@import 'variables';
+@import 'mixins';
+
+.car-form {
+    form {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        @include respond(phone) {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input,
+        select {
+            display: block;
+            width: 25.5rem;
+            height: 4rem;
+            border: none;
+            background: $light-grey;
+            border-bottom: 1px solid black;
+            padding-left: 1rem;
+
+            @include respond(phone) {
+                width: 29rem;
+            }
+        }
+
+        select {
+            background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+            background-repeat: no-repeat;
+            background-position-x: 100%;
+            background-position-y: 5px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+        label {
+            margin: 1rem 1rem 1rem 0;
+            display: inline;
+
+            span {
+                display: inline-block;
+                margin-bottom: 0.5rem;
+            }
+        }
+    }
+
+    &__required::after {
+        content: "*";
+        color: red;
+    }
+
+    &__buttons {
+        margin-left: auto;
+        margin-right: 3rem;
+
+        @include respond(phone) {
+            margin: 0;
+        }
+    }
+
+    button {
+        margin: 2rem 1rem 0 0;
+
+        @include respond(phone) {
+            margin: 2rem 2.8rem 0 2rem;
+        }
+
+        @include app-button(12.1rem, 4rem);
+
+        &:nth-child(2) {
+            background-color: $dark-grey;
+        }
+
+        span {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+    }
+
+    &__spinner {
+        display: inline-block;
+        vertical-align: middle;
+        height: 1.5rem;
+        filter: invert(100%);
+        animation-name: spin;
+        animation-duration: 5000ms;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        margin-left: 5rem;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

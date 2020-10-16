@@ -10,7 +10,7 @@ import { DataTableColMarkerDirective } from '../directives/data-table-row-marker
   templateUrl: './data-table.component.html',
   styleUrls: ['./data-table.component.scss']
 })
-export class DataTableComponent implements OnInit, AfterContentInit {
+export class DataTableComponent implements OnInit {
 
   @Input()
   data: DataTableInput;
@@ -35,10 +35,6 @@ export class DataTableComponent implements OnInit, AfterContentInit {
         this.initializeDataArrays();
       }
     });
-  }
-
-  ngAfterContentInit(): void {
-    console.log(this.tableColTemplates);
   }
 
   rowClicked(tableCol: DataTableColMarkerDirective, data: any): void {

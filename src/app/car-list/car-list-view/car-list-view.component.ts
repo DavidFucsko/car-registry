@@ -1,61 +1,82 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+
 import { of } from 'rxjs';
+import { Car } from 'src/app/models/car.model';
 
 @Component({
   selector: 'app-car-list-view',
   templateUrl: './car-list-view.component.html',
   styleUrls: ['./car-list-view.component.scss']
 })
-export class CarListViewComponent {
+export class CarListViewComponent implements OnInit {
 
   public displayModal = false;
+  public addCarForm: FormGroup;
+  public currentCarModel: Car;
+  public modalTitle: string;
+  public loading: boolean;
+
+  public optionLists$ = of({
+    owners: ['asdasd', 'sdasdas', 'sdasda'],
+    carTypes: ['Volvo', 'BWM', 'Volkswagen', 'KIA'],
+    fuelTypes: ['Gasoline', 'Petrol', 'Hybrid', 'Electric']
+  });
+
+  public optionLists: { owners: string[], carTypes: string[], fuelTypes: string[] };
 
   public data$ = of({
     titles: [
-      { titleFor: 'firstField', title: 'License Number', keep: true },
-      { titleFor: 'secondField', title: 'Owner', keep: true },
-      { titleFor: 'thirdField', title: 'Car Type' },
-      { titleFor: 'fourthField', title: 'Year' },
-      { titleFor: 'fifth', title: 'Cm3' },
-      { titleFor: 'sixth', title: 'Fuel Type' },
+      { titleFor: 'licenseNumber', title: 'License Number', keep: true },
+      { titleFor: 'owner', title: 'Owner', keep: true },
+      { titleFor: 'carType', title: 'Car Type' },
+      { titleFor: 'year', title: 'Year' },
+      { titleFor: 'cm3', title: 'Cm3' },
+      { titleFor: 'fuelType', title: 'Fuel Type' },
       { titleFor: '', title: 'Actions', keep: true }],
     data: [{
-      firstField: 'Hello1',
-      secondField: 'World1 World1 World1 World1 World1 World1 World1 ',
-      thirdField: 'Hello1',
-      fourthField: 'World1',
-      fifth: 'Hello1',
-      sixth: 'World1'
+      licenseNumber: 'asdas',
+      owner: 'asdasd',
+      carType: 'Volvo',
+      year: 2018,
+      cm3: 1000,
+      fuelType: 'sdasd',
     },
     {
-      firstField: 'Hello2',
-      secondField: 'World2 World1 World1 World1 ',
-      thirdField: 'Hello2',
-      fourthField: 'World2',
-      fifth: 'Hello2',
-      sixth: 'World2'
+      licenseNumber: 'asdasdasas',
+      owner: 'asdasd',
+      carType: 'BMW',
+      year: 2019,
+      cm3: 2000,
+      fuelType: 'sdaasdsd',
     },
     {
-      firstField: 'Hello3',
-      secondField: 'World3World1 ',
-      thirdField: 'Hello3',
-      fourthField: 'World3',
-      fifth: 'Hello3',
-      sixth: 'World3'
-    }, {
-      firstField: 'Hello4',
-      secondField: 'World4',
-      thirdField: 'Hello4',
-      fourthField: 'World4',
-      fifth: 'Hello4',
-      sixth: 'World4'
+      licenseNumber: 'asdasdasas',
+      owner: 'asdasd',
+      carType: 'sdasd',
+      year: 1003,
+      cm3: 3000,
+      fuelType: 'sdaasdsd',
+    },
+    {
+      licenseNumber: 'asdasdasas',
+      owner: 'asdasd',
+      carType: 'sdasd',
+      year: 2010,
+      cm3: 2000,
+      fuelType: 'sdaasdsd',
     }]
   });
 
   constructor() { }
 
-  rowClicked(event: any): void {
-    console.log(event);
+  ngOnInit(): void {
+    this.optionLists$.subscribe(optionLists => this.optionLists = optionLists);
+  }
+
+  rowClicked(carSelected: Car): void {
+    this.currentCarModel = carSelected;
+    this.modalTitle = 'Edit Car'
     this.toggleModalState(true);
   }
 
@@ -63,4 +84,17 @@ export class CarListViewComponent {
     this.displayModal = newState;
   }
 
+  addCar(carToAdd: Car): void {
+    this.loading = true;
+    setTimeout(() => {
+      console.log(carToAdd);
+      this.loading = false;
+    }, 3000);
+  }
+
+  addNewCar(): void {
+    this.currentCarModel = new Car();
+    this.modalTitle = 'Add a New Car';
+    this.toggleModalState(true);
+  }
 }

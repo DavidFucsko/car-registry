@@ -44,10 +44,15 @@
     width: $width;
     height: $height;
     background-color: $secondary-color-dark;
-    border: 1px solid $secondary-color-dark;
+    border: none;
     cursor: pointer;
     text-align: left;
     padding: 0 1rem;
+
+    &[disabled] {
+        background-color: $light-grey;
+        color: $dark-grey;
+    }
 }
 
 @mixin absolute-middle {

@@ -1,5 +1,4 @@
-body,
-input {
+body {
     font-size: $normal-font;
     letter-spacing: 0.1rem;
     font-family: IBM Plex Sans, sans-serif-light, sans-serif;
@@ -42,7 +41,8 @@ form {
 
     label,
     input,
-    p {
+    p,
+    select {
         font-size: $small-font;
         color: black;
     }

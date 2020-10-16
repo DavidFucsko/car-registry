@@ -1,0 +1,57 @@
+<div class="car-form">
+    <form [formGroup]="addCarForm" (ngSubmit)="addCar()">
+        <label>
+            <span class="car-form__required">License number</span>
+            <input type="text" formControlName="licenseNumber">
+        </label>
+        <label>
+            <span class="car-form__required">Owner</span>
+            <select formControlName="owner">
+                <ng-container *ngIf="!!optionLists">
+                    <option [ngValue]="" disabled selected>Select the car's owner</option>
+                    <option *ngFor="let option of optionLists.owners" [ngValue]="option">
+                        {{option}}
+                    </option>
+                </ng-container>
+            </select>
+        </label>
+        <label>
+            <span>Car Type</span>
+            <select formControlName="carType">
+                <ng-container *ngIf="!!optionLists">
+                    <option [ngValue]="" disabled selected>Select a car type</option>
+                    <option *ngFor="let option of optionLists.carTypes" [ngValue]="option">
+                        {{option}}
+                    </option>
+                </ng-container>
+            </select>
+        </label>
+        <label>
+            <span>Year</span>
+            <input type="number" formControlName="year">
+        </label>
+        <label>
+            <span>Cm3</span>
+            <input type="number" formControlName="cm3">
+        </label>
+        <label>
+            <span>Fuel Type</span>
+            <select formControlName="fuelType">
+                <ng-container *ngIf="!!optionLists">
+                    <option [ngValue]="" disabled selected>Select a fuel type</option>
+                    <option *ngFor="let option of optionLists.fuelTypes" [ngValue]="option">
+                        {{option}}
+                    </option>
+                </ng-container>
+            </select>
+        </label>
+        <div class="car-form__buttons">
+            <button [disabled]="!addCarForm.valid" type="submit">
+                <span>{{isEdit ? 'Edit' : 'Add'}}</span>
+                <img *ngIf="loading" src="../../../assets/icons/spinner.svg"
+                    class="car-form__spinner" />
+            </button>
+            <button tpye="button" (click)="editCanceled()">Cancel</button>
+        </div>
+    </form>
+</div>

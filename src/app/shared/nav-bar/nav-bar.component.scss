@@ -8,7 +8,6 @@
     height: 5rem;
     background-color: $secondary-color-dark;
     color: $white;
-    @include normal-box-shadow($light-grey);
     margin-bottom: 1.5rem;
     padding: 0 5rem;
     z-index: 2;
