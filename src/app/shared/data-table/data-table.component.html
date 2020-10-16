@@ -4,7 +4,7 @@
             <tr>
                 <ng-container *ngFor="let title of titlesToRender let first=first let last=last">
                     <th [class.data-table__heading--first]=first [class.data-table__heading--last]=last
-                        class="data-table__column  data-table__heading">{{title.title}}</th>
+                        class="data-table__column  data-table__heading">{{title}}</th>
                 </ng-container>
             </tr>
         </thead>
@@ -14,11 +14,13 @@
         <tbody class="data-table__body">
             <ng-container *ngFor="let dataObject of data.data let odd = odd">
                 <tr [class.odd]=odd>
-                    <ng-container *ngFor="let dataKey of dataProperties">
-                        <td class="data-table__column">{{dataObject[dataKey]}}</td>
+                    <ng-container *ngFor="let dataKey of dataProperties let first = first let last = last">
+                        <td [class.data-table__column--first]=first [class.data-table__column--last]=last
+                            class="data-table__column">{{dataObject[dataKey]}}</td>
                     </ng-container>
-                    <ng-container *ngFor="let tableCol of tableColTemplates">
-                        <td class="data-table__column">
+                    <ng-container *ngFor="let tableCol of tableColTemplates let last = last">
+                        <td [class.data-table__column--projected--last]=last
+                            class="data-table__column">
                             <div (click)="rowClicked(tableCol, dataObject)">
                                 <ng-container *ngTemplateOutlet="tableCol.templateRef">
                                 </ng-container>

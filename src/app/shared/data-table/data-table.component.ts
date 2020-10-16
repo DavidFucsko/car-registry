@@ -1,8 +1,9 @@
 import { Input, OnInit } from '@angular/core';
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { AfterContentInit, Component, ContentChildren } from '@angular/core';
+
 import { DataTableInput } from 'src/app/models/data-table.model';
 import { DataTableColMarkerDirective } from '../directives/data-table-row-marker.directive';
-import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-data-table',
@@ -25,11 +26,11 @@ export class DataTableComponent implements OnInit, AfterContentInit {
     if (this.data && this.data.data) {
       this.initializeDataArrays();
     }
-    this.observer.observe('(max-width: 75em)').subscribe(result => {
+    this.observer.observe('(max-width: 37.5em)').subscribe(result => {
       if (result.matches) {
-        this.dataProperties = Object.keys(this.data.data[0])
-          .filter(dataKey => (this.data.titles[0].titleFor === dataKey || this.data.titles[0].titleFor === '') && this.data.titles[0].keep);
-        this.titlesToRender = this.data.titles.filter(title => title.keep);
+        const filteredTitles = this.data.titles.filter(title => title.keep);
+        this.titlesToRender = filteredTitles.map(title => title.title);
+        this.dataProperties = filteredTitles.filter(title => !!title.titleFor).map(title => title.titleFor);
       } else {
         this.initializeDataArrays();
       }
@@ -46,7 +47,7 @@ export class DataTableComponent implements OnInit, AfterContentInit {
 
   private initializeDataArrays(): void {
     this.dataProperties = Object.keys(this.data.data[0]);
-    this.titlesToRender = this.data.titles;
+    this.titlesToRender = this.data.titles.map(title => title.title);
   }
 
 }

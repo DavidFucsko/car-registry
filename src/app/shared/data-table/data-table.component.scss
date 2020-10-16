@@ -13,21 +13,61 @@
 
     &__column {
         padding: 1rem 4rem;
+        white-space: nowrap;
+        max-width: 20rem;
+        text-overflow: ellipsis;
+        overflow: hidden;
+
+        @include respond(tab-land) {
+            padding: 1rem 2rem;
+            max-width: 15rem;
+        }
+
+        @include respond(phone) {
+            padding: 1rem 1rem;
+            max-width: 10rem;
+
+        }
+
+        &--first {
+            @include respond(phone) {
+                padding-left: 2rem;
+            }
+        }
+
+        &--last {
+            @include respond(phone) {
+                padding-right: 2rem;
+            }
+        }
+
+        &--projected--last {
+            @include respond(phone) {
+                padding-right: 11rem;
+            }
+        }
     }
 
     &__heading {
-        white-space: nowrap;
         text-align: left;
         font-weight: bold;
 
         &--last {
             padding-right: 0;
             border-right: 4rem solid transparent;
+
+            @include respond(phone) {
+                border-right: 2rem solid transparent;
+            }
         }
 
         &--first {
             padding-left: 0;
             border-left: 4rem solid transparent;
+
+            @include respond(phone) {
+                border-left: 2rem solid transparent;
+            }
         }
     }
 

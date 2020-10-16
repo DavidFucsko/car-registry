@@ -12,14 +12,14 @@ export class CarListViewComponent {
     titles: [
       { titleFor: 'firstField', title: 'License Number', keep: true },
       { titleFor: 'secondField', title: 'Owner', keep: true },
-      { titleFor: 'thirdField', tilte: 'Car Type' },
+      { titleFor: 'thirdField', title: 'Car Type' },
       { titleFor: 'fourthField', title: 'Year' },
       { titleFor: 'fifth', title: 'Cm3' },
       { titleFor: 'sixth', title: 'Fuel Type' },
       { titleFor: '', title: 'Actions', keep: true }],
     data: [{
       firstField: 'Hello1',
-      secondField: 'World1',
+      secondField: 'World1 World1 World1 World1 World1 World1 World1 ',
       thirdField: 'Hello1',
       fourthField: 'World1',
       fifth: 'Hello1',
@@ -27,7 +27,7 @@ export class CarListViewComponent {
     },
     {
       firstField: 'Hello2',
-      secondField: 'World2',
+      secondField: 'World2 World1 World1 World1 ',
       thirdField: 'Hello2',
       fourthField: 'World2',
       fifth: 'Hello2',
@@ -35,7 +35,7 @@ export class CarListViewComponent {
     },
     {
       firstField: 'Hello3',
-      secondField: 'World3',
+      secondField: 'World3World1 ',
       thirdField: 'Hello3',
       fourthField: 'World3',
       fifth: 'Hello3',
